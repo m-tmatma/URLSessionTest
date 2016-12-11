@@ -25,8 +25,6 @@ class Request {
         var request: URLRequest = URLRequest(url: url)
         
         request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.httpBody = try JSONSerialization.data(withJSONObject: body, options: JSONSerialization.WritingOptions.prettyPrinted)
         
         session.dataTask(with: request, completionHandler: completionHandler).resume()
@@ -37,8 +35,6 @@ class Request {
         var request: URLRequest = URLRequest(url: url)
         
         request.httpMethod = "PUT"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.httpBody = try JSONSerialization.data(withJSONObject: body, options: JSONSerialization.WritingOptions.prettyPrinted)
         session.dataTask(with: request, completionHandler: completionHandler).resume()
     }
@@ -48,8 +44,6 @@ class Request {
         var request: URLRequest = URLRequest(url: url)
         
         request.httpMethod = "PATCH"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.httpBody = try JSONSerialization.data(withJSONObject: body, options: JSONSerialization.WritingOptions.prettyPrinted)
         session.dataTask(with: request, completionHandler: completionHandler).resume()
     }
@@ -59,7 +53,6 @@ class Request {
         var request: URLRequest = URLRequest(url: url)
         
         request.httpMethod = "DELETE"
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
         session.dataTask(with: request, completionHandler: completionHandler).resume()
     }
 }
