@@ -19,41 +19,5 @@ class Request {
         request.httpMethod = "GET"
         session.dataTask(with: request, completionHandler: completionHandler).resume()
     }
-    
-    // POST METHOD
-    func post(url: URL, body: NSMutableDictionary, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) throws {
-        var request: URLRequest = URLRequest(url: url)
-        
-        request.httpMethod = "POST"
-        request.httpBody = try JSONSerialization.data(withJSONObject: body, options: JSONSerialization.WritingOptions.prettyPrinted)
-        
-        session.dataTask(with: request, completionHandler: completionHandler).resume()
-    }
-    
-    // PUT METHOD
-    func put(url: URL, body: NSMutableDictionary, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) throws {
-        var request: URLRequest = URLRequest(url: url)
-        
-        request.httpMethod = "PUT"
-        request.httpBody = try JSONSerialization.data(withJSONObject: body, options: JSONSerialization.WritingOptions.prettyPrinted)
-        session.dataTask(with: request, completionHandler: completionHandler).resume()
-    }
-    
-    // PATCH METHOD
-    func patch(url: URL, body: NSMutableDictionary, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) throws {
-        var request: URLRequest = URLRequest(url: url)
-        
-        request.httpMethod = "PATCH"
-        request.httpBody = try JSONSerialization.data(withJSONObject: body, options: JSONSerialization.WritingOptions.prettyPrinted)
-        session.dataTask(with: request, completionHandler: completionHandler).resume()
-    }
-    
-    // DELETE METHOD
-    func delete(url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        var request: URLRequest = URLRequest(url: url)
-        
-        request.httpMethod = "DELETE"
-        session.dataTask(with: request, completionHandler: completionHandler).resume()
-    }
 }
 
