@@ -22,6 +22,23 @@ class ViewController: NSViewController {
         }
     }
 
+    @IBAction func buttonClicked(_ sender: Any) {
+        let request: Request = Request()
+        
+        let url: URL = URL(string: "http://www.asahi.com")!
+        
+        request.get(url: url, completionHandler: { data, response, error in
+            if let res = response {
+                print(res)
+            }
+            if let dat = data {
+                print(dat)
+            }
+            if let err = error {
+                print(err)
+            }
+        })
+    }
 
 }
 
